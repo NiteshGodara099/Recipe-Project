@@ -1,5 +1,7 @@
+import Card from './components/Card'
+import Categories from './components/Categories'
 import Navbar from './components/Navbar'
-import RecipeCard from './components/RecipeCard'
+import Swiperjs from './components/Swiperjs'
 
 function App() {
   
@@ -7,7 +9,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <RecipeCard />
+      <Swiperjs />
+      <Categories />
+      <Card />
     </>
   )
 }
