@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X, Facebook, Twitter, Instagram } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,36 +10,43 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div className="text-2xl font-bold">MyLogo</div>
+          <Link to="/" className="text-2xl font-bold text-gray-800">
+          <div className="text-2xl font-[Lobster]">Foodieland<span className="text-red-400">.</span></div>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6">
-            <a href="#home" className="hover:text-gray-500">
+            <NavLink to="/" className={({ isActive }) =>
+              isActive ? "text-red-400" : "hover:text-gray-500"
+            }>
               Home
-            </a>
-            <a href="#about" className="hover:text-gray-500">
+            </NavLink>
+            <NavLink to="/recipe" className={({ isActive }) =>
+              isActive ? "text-red-400" : "hover:text-gray-500"
+            }>
               Recipe
-            </a>
-            <a href="#services" className="hover:text-gray-500">
+            </NavLink>
+            <NavLink to="/blog" className={({ isActive }) =>
+              isActive ? "text-red-400" : "hover:text-gray-500"
+            }>
               Blog
-            </a>
-            <a href="#contact" className="hover:text-gray-500">
+            </NavLink>
+            <NavLink to="/contact" className={({ isActive }) =>
+              isActive ? "text-red-400" : "hover:text-gray-500"
+            }>
               Contact
-            </a>
-            <a href="#contact" className="hover:text-gray-500">
-              About Us
-            </a>
+            </NavLink>
           </div>
-          <div className="flex space-x-2 ">
-            <a href="#contact" className="hover:text-gray-500">
+          <div className="flex space-x-4 ">
+            <NavLink to="#" className="hover:text-gray-500">
               <Facebook />
-            </a>
-            <a href="#contact" className="hover:text-gray-500">
+            </NavLink>
+            <NavLink to="#" className="hover:text-gray-500">
               <Twitter />
-            </a>
-            <a href="#contact" className="hover:text-gray-500">
+            </NavLink>
+            <NavLink to="#" className="hover:text-gray-500">
               <Instagram />
-            </a>
+            </NavLink>
           </div>
 
           {/* Mobile Button */}
@@ -53,18 +61,18 @@ function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2">
-          <a href="#home" className="block hover:text-gray-200">
+          <NavLink to="/" className="block hover:text-gray-200">
             Home
-          </a>
-          <a href="#about" className="block hover:text-gray-200">
-            About
-          </a>
-          <a href="#services" className="block hover:text-gray-200">
-            Services
-          </a>
-          <a href="#contact" className="block hover:text-gray-200">
+          </NavLink>
+          <NavLink to="/recipe" className="block hover:text-gray-200">
+            Recipe
+          </NavLink>
+          <NavLink to="/blog" className="block hover:text-gray-200">
+            Blog
+          </NavLink>
+          <NavLink to="/contact" className="block hover:text-gray-200">
             Contact
-          </a>
+          </NavLink>
         </div>
       )}
     </nav>

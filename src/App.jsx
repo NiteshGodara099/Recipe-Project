@@ -1,19 +1,23 @@
-import Card from './components/Card'
-import Categories from './components/Categories'
-import Navbar from './components/Navbar'
-import Swiperjs from './components/Swiperjs'
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './components/Home';
+import Recipe from './components/Recipe';
+import Blog from './components/Blog';
+import Contact from './components/Contact';
 
 function App() {
-  
-
   return (
-    <>
-      <Navbar />
-      <Swiperjs />
-      <Categories />
-      <Card />
-    </>
-  )
+    
+    <Routes>
+      
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="recipe" element={<Recipe />} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="contact" element={<Contact />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;
